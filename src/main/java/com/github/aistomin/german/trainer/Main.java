@@ -20,6 +20,7 @@ public class Main {
         words.add(new Noun("Tisch", "Table", Gender.MASCULINE, "Tische"));
         words.add(new Noun("Katze", "Cat", Gender.FEMININE, "Katzen"));
         words.add(new Noun("Mädchen", "Girl", Gender.NEUTER, "Mädchen"));
+        words.add(new Verb("gehen", "to go", "ging", "gegangen"));
         System.out.println("****************** Words: ******************");
         for (final Word word : words) {
             System.out.println(word.getEnglish() + ": " + word.toString());

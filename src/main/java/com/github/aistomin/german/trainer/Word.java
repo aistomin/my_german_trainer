@@ -8,7 +8,8 @@ package com.github.aistomin.german.trainer;
 public abstract class Word {
 
     /**
-     * Basic German word, without article(s) or form(s).
+     * Basic German word, without article(s) or form(s). Infinitive form in case
+     * of a verb.
      */
     private final String key;
 
