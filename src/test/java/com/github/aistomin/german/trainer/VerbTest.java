@@ -1,5 +1,7 @@
 package com.github.aistomin.german.trainer;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,5 +27,26 @@ public final class VerbTest {
         Assert.assertEquals(preterite, go.getPreterite());
         Assert.assertEquals(perfect, go.getPerfect());
         Assert.assertEquals("gehen; ging; gegangen", go.toString());
+    }
+
+    /**
+     * Check that we can convert a verb from/to JSON.
+     *
+     * @throws JSONException If JSON was not properly parsed.
+     */
+    @Test
+    public void testJson() throws JSONException {
+        final Verb live = new Verb("leben", "to live", "lebte", "gelebt");
+        final JSONObject json = live.toJSON();
+        Assert.assertEquals("Verb", json.getString("class"));
+        Assert.assertEquals(live.getKey(), json.getString("german"));
+        Assert.assertEquals(live.getEnglish(), json.getString("english"));
+        Assert.assertEquals(live.getPreterite(), json.getString("preterite"));
+        Assert.assertEquals(live.getPerfect(), json.getString("perfect"));
+        final Verb parsed = new Verb(json);
+        Assert.assertEquals(live.getKey(), parsed.getKey());
+        Assert.assertEquals(live.getEnglish(), parsed.getEnglish());
+        Assert.assertEquals(live.getPreterite(), parsed.getPreterite());
+        Assert.assertEquals(live.getPerfect(), parsed.getPerfect());
     }
 }

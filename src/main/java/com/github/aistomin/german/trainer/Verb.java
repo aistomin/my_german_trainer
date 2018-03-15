@@ -1,6 +1,8 @@
 package com.github.aistomin.german.trainer;
 
 import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by aistomin on 15.03.18.
@@ -37,6 +39,21 @@ public final class Verb extends Word {
     }
 
     /**
+     * JSON ctor.
+     *
+     * @param json JSON object.
+     * @throws JSONException If parsing error occurred.
+     */
+    public Verb(final JSONObject json) throws JSONException {
+        this(
+            json.getString("german"),
+            json.getString("english"),
+            json.getString("preterite"),
+            json.getString("perfect")
+        );
+    }
+
+    /**
      * Get preterite form of the verb.
      *
      * @return Preterite form of the verb.
@@ -63,5 +80,13 @@ public final class Verb extends Word {
             this.preterite,
             this.perfect
         );
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        final JSONObject json = super.toJSON();
+        json.put("preterite", this.preterite);
+        json.put("perfect", this.perfect);
+        return json;
     }
 }

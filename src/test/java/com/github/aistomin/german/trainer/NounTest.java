@@ -1,5 +1,7 @@
 package com.github.aistomin.german.trainer;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -68,5 +70,26 @@ public final class NounTest {
         Assert.assertEquals(
             "das Mädchen; ein Mädchen; die Mädchen", girl.toString()
         );
+    }
+
+    /**
+     * Check that we can convert a noun from/to JSON.
+     *
+     * @throws JSONException If JSON was not properly parsed.
+     */
+    @Test
+    public void testJson() throws JSONException {
+        final Noun man = new Noun("Mann", "man", Gender.MASCULINE, "Männer");
+        final JSONObject json = man.toJSON();
+        Assert.assertEquals("Noun", json.getString("class"));
+        Assert.assertEquals(man.getKey(), json.getString("german"));
+        Assert.assertEquals(man.getEnglish(), json.getString("english"));
+        Assert.assertEquals(man.getGender().name(), json.getString("gender"));
+        Assert.assertEquals(man.getPlural(), json.getString("plural"));
+        final Noun parsed = new Noun(json);
+        Assert.assertEquals(man.getKey(), parsed.getKey());
+        Assert.assertEquals(man.getEnglish(), parsed.getEnglish());
+        Assert.assertEquals(man.getGender(), parsed.getGender());
+        Assert.assertEquals(man.getPlural(), parsed.getPlural());
     }
 }

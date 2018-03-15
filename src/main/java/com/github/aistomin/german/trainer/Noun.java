@@ -1,6 +1,8 @@
 package com.github.aistomin.german.trainer;
 
 import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by aistomin on 15.03.18.
@@ -37,6 +39,21 @@ public final class Noun extends Word {
     }
 
     /**
+     * JSON ctor.
+     *
+     * @param json JSON object.
+     * @throws JSONException If parsing error occurred.
+     */
+    public Noun(final JSONObject json) throws JSONException {
+        this(
+            json.getString("german"),
+            json.getString("english"),
+            Gender.valueOf(json.getString("gender")),
+            json.getString("plural")
+        );
+    }
+
+    /**
      * Get the gender of the noun.
      *
      * @return The gender of the noun.
@@ -52,6 +69,14 @@ public final class Noun extends Word {
      */
     public String getPlural() {
         return plural;
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        final JSONObject json = super.toJSON();
+        json.put("gender", this.gender.name());
+        json.put("plural", this.plural);
+        return json;
     }
 
     @Override

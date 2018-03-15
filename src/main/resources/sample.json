@@ -1,0 +1,30 @@
+{"words": [
+  {
+    "class": "Noun",
+    "english": "Table",
+    "gender": "MASCULINE",
+    "german": "Tisch",
+    "plural": "Tische"
+  },
+  {
+    "class": "Noun",
+    "english": "Cat",
+    "gender": "FEMININE",
+    "german": "Katze",
+    "plural": "Katzen"
+  },
+  {
+    "class": "Noun",
+    "english": "Girl",
+    "gender": "NEUTER",
+    "german": "Mädchen",
+    "plural": "Mädchen"
+  },
+  {
+    "class": "Verb",
+    "english": "to go",
+    "german": "gehen",
+    "perfect": "gegangen",
+    "preterite": "ging"
+  }
+]}

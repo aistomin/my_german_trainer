@@ -1,5 +1,8 @@
 package com.github.aistomin.german.trainer;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by aistomin on 15.03.18.
  * <p>
@@ -45,5 +48,19 @@ public abstract class Word {
      */
     public String getEnglish() {
         return english;
+    }
+
+    /**
+     * Convert the word to JSON.
+     *
+     * @return JSON object.
+     * @throws JSONException If some JSON error occurred.
+     */
+    public JSONObject toJSON() throws JSONException {
+        final JSONObject json = new JSONObject();
+        json.put("class", getClass().getSimpleName());
+        json.put("german", getKey());
+        json.put("english", getEnglish());
+        return json;
     }
 }
