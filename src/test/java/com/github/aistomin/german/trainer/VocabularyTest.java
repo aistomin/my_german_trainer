@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -23,14 +22,7 @@ public class VocabularyTest {
      */
     @Test
     public void testJSON() throws Exception {
-        final String json = new String(
-            Files.readAllBytes(
-                Paths.get(
-                    getClass().getResource("/sample.json").toURI()
-                )
-            )
-        );
-        final Vocabulary vocabulary = new Vocabulary(new JSONObject(json));
+        final Vocabulary vocabulary = new SampleDictionary().vocabulary();
         final List<String> expected = Arrays.asList(
             "Table", "Cat", "Girl", "to go", "black"
         );
@@ -39,6 +31,14 @@ public class VocabularyTest {
         for (final Word word : words) {
             Assert.assertTrue(expected.contains(word.getEnglish()));
         }
-        Assert.assertEquals(json, vocabulary.toJSON().toString(2));
+        Assert.assertEquals(
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        getClass().getResource("/sample.json").toURI()
+                    )
+                )
+            ), vocabulary.toJSON().toString(2)
+        );
     }
 }
