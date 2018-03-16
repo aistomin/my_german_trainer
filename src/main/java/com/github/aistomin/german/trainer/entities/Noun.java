@@ -45,12 +45,9 @@ public final class Noun extends Word {
      * @throws JSONException If parsing error occurred.
      */
     public Noun(final JSONObject json) throws JSONException {
-        this(
-            json.getString("german"),
-            json.getString("english"),
-            Gender.valueOf(json.getString("gender")),
-            json.getString("plural")
-        );
+        super(json);
+        this.gender = Gender.valueOf(json.getString("gender"));
+        this.plural = json.getString("plural");
     }
 
     /**

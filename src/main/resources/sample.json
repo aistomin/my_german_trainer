@@ -26,5 +26,10 @@
     "german": "gehen",
     "perfect": "gegangen",
     "preterite": "ging"
+  },
+  {
+    "class": "SimpleWord",
+    "english": "black",
+    "german": "schwarz"
   }
 ]}

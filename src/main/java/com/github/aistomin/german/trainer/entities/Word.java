@@ -33,6 +33,19 @@ public abstract class Word {
     }
 
     /**
+     * JSON ctor.
+     *
+     * @param json JSON object.
+     * @throws JSONException If parsing error occurred.
+     */
+    Word(final JSONObject json) throws JSONException {
+        this(
+            json.getString("german"),
+            json.getString("english")
+        );
+    }
+
+    /**
      * Get german word, without article(s) or form(s).
      *
      * @return Word.

@@ -32,9 +32,10 @@ public class VocabularyTest {
         );
         final Vocabulary vocabulary = new Vocabulary(new JSONObject(json));
         final List<String> expected = Arrays.asList(
-            "Table", "Cat", "Girl", "to go"
+            "Table", "Cat", "Girl", "to go", "black"
         );
         final List<Word> words = vocabulary.getWords();
+        Assert.assertEquals(expected.size(), words.size());
         for (final Word word : words) {
             Assert.assertTrue(expected.contains(word.getEnglish()));
         }

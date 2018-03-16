@@ -45,12 +45,9 @@ public final class Verb extends Word {
      * @throws JSONException If parsing error occurred.
      */
     public Verb(final JSONObject json) throws JSONException {
-        this(
-            json.getString("german"),
-            json.getString("english"),
-            json.getString("preterite"),
-            json.getString("perfect")
-        );
+        super(json);
+        this.preterite = json.getString("preterite");
+        this.perfect = json.getString("perfect");
     }
 
     /**

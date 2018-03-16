@@ -1,6 +1,7 @@
 package com.github.aistomin.german.trainer;
 
 import com.github.aistomin.german.trainer.entities.Noun;
+import com.github.aistomin.german.trainer.entities.SimpleWord;
 import com.github.aistomin.german.trainer.entities.Verb;
 import com.github.aistomin.german.trainer.entities.Word;
 import java.util.ArrayList;
@@ -48,6 +49,9 @@ public final class Vocabulary {
                     break;
                 case "Verb":
                     this.words.add(new Verb(word));
+                    break;
+                case "SimpleWord":
+                    this.words.add(new SimpleWord(word));
                     break;
                 default:
                     throw new IllegalStateException("Unknown word class: " + clazz);
