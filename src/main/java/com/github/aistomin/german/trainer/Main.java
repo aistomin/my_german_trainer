@@ -5,6 +5,7 @@ import com.github.aistomin.german.trainer.entities.Noun;
 import com.github.aistomin.german.trainer.entities.Verb;
 import com.github.aistomin.german.trainer.entities.Word;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.json.JSONException;
 
@@ -19,15 +20,17 @@ public class Main {
      * Application's entry point.
      *
      * @param args Arguments.
-     * @throws JSONException If JSON exception occurred.
+     * @throws Exception If something goes wrong.
      */
-    public static void main(String[] args) throws JSONException {
-        final List<Word> words = new ArrayList<>();
-        words.add(new Noun("Tisch", "Table", Gender.MASCULINE, "Tische"));
-        words.add(new Noun("Katze", "Cat", Gender.FEMININE, "Katzen"));
-        words.add(new Noun("Mädchen", "Girl", Gender.NEUTER, "Mädchen"));
-        words.add(new Verb("gehen", "to go", "ging", "gegangen"));
-        final Vocabulary vocabulary = new Vocabulary(words);
+    public static void main(String[] args) throws Exception {
+        final Vocabulary vocabulary = new Vocabulary(
+            Arrays.asList(
+                new Noun("Tisch", "Table", Gender.MASCULINE, "Tische"),
+                new Noun("Katze", "Cat", Gender.FEMININE, "Katzen"),
+                new Noun("Mädchen", "Girl", Gender.NEUTER, "Mädchen"),
+                new Verb("gehen", "to go", "ging", "gegangen")
+            )
+        );
         System.out.println("****************** Words: ******************");
         System.out.println(vocabulary.toJSON().toString());
         System.out.println("********************************************");
