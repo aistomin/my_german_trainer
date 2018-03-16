@@ -1,4 +1,4 @@
-package com.github.aistomin.german.trainer;
+package com.github.aistomin.german.trainer.entities;
 
 import java.util.Locale;
 import org.json.JSONException;

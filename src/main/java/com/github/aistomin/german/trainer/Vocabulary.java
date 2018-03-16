@@ -1,5 +1,8 @@
 package com.github.aistomin.german.trainer;
 
+import com.github.aistomin.german.trainer.entities.Noun;
+import com.github.aistomin.german.trainer.entities.Verb;
+import com.github.aistomin.german.trainer.entities.Word;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

@@ -1,5 +1,7 @@
-package com.github.aistomin.german.trainer;
+package com.github.aistomin.german.trainer.entities;
 
+import com.github.aistomin.german.trainer.entities.Gender;
+import com.github.aistomin.german.trainer.entities.Noun;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Assert;

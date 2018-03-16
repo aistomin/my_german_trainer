@@ -1,4 +1,4 @@
-package com.github.aistomin.german.trainer;
+package com.github.aistomin.german.trainer.entities;
 
 import org.json.JSONException;
 import org.json.JSONObject;

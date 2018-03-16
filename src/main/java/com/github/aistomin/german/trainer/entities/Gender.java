@@ -1,4 +1,4 @@
-package com.github.aistomin.german.trainer;
+package com.github.aistomin.german.trainer.entities;
 
 /**
  * Created by aistomin on 15.03.18.
